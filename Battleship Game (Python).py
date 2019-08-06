@@ -19,12 +19,14 @@ def random_col(board):
 
 ship_row = random_row(board)
 ship_col = random_col(board)
-print ship_row
-print ship_col
+# print ship_row
+# print ship_col
 
 # Everything from here on should be in your for loop
 # don't forget to properly indent!
 for turn in range(4):
+  if turn == 0:
+    print 'Welcome to the Battleship Game. Rows and Columns run from 0-4. You have four guesses.'
   print "Turn", turn + 1
   guess_row = int(raw_input("Guess Row: "))
   guess_col = int(raw_input("Guess Col: "))
@@ -43,5 +45,12 @@ for turn in range(4):
       board[guess_row][guess_col] = "X"
       
     print_board(board)
+  
+  if turn == 2:
+    see_answer = raw_input("You have one try left. See answer? Type 'Y' or 'N': ")
+    if see_answer == 'Y':
+      print ship_row
+      print ship_col
+
   if turn == 3:
     print "Game Over"
